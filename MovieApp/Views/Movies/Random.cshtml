@@ -1,8 +1,23 @@
-﻿@model MovieApp.Models.Movie
+﻿@model MovieApp.ViewModels.RandomViewModel
 @{
 	ViewBag.Title = "Random";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
+<h2>@Model.Movie.Name</h2>
 
+@if (Model.Customers.Count() == 0)
+	{
+		<text>The number of customers is lower than 2</text>
+	}
+
+	else
+	{
+		<ul>
+			@foreach (var customer in Model.Customers)
+			{
+				<li>@customer.Name</li>
+			}
+		</ul>
+	}
+	

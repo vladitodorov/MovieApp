@@ -1,0 +1,44 @@
+﻿@model MovieApp.ViewModels.ViewAllCustomers
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Customers</title>
+</head>
+<body>
+	<h1>Customers</h1>
+	@if (Model.Customers.Count < 2)
+	{
+		<p>We don't have any customers yet.</p>
+	}
+	else
+	{
+		<table id="customers" class="table">
+			<thead>
+				<tr>
+					<th>Customer</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var customer in Model.Customers)
+				{
+					<tr>
+
+						<td>
+							<a href="/Customers/Details/@customer.Id">@customer.Name</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+
+
+
+</body>
+</html>
